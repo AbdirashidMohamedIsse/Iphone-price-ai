@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Shelf-label palette: cool paper, navy ink, one price-tag yellow. */
+:root {
+  --background: #f3f5f7;
+  --foreground: #1b2a41;
+  --card: #ffffff;
+  --muted: #e8ecf0;
+  --muted-foreground: #556579;
+  --border: #d9dee5;
+  --ring: #1b2a41;
+  --primary: #1b2a41;
+  --primary-foreground: #f3f5f7;
+  --tag: #ffd84d;
+  --tag-foreground: #1b2a41;
+  --good: #0e7c57;
+  --bad: #b3372f;
+  --warn: #8f5a0a;
+  --chart-1: #8fa0b5;
+  --chart-2: #1b2a41;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1620;
+    --foreground: #e9eef5;
+    --card: #162030;
+    --muted: #1d2a3c;
+    --muted-foreground: #9aabbf;
+    --border: #28374d;
+    --ring: #ffd84d;
+    --primary: #ffd84d;
+    --primary-foreground: #1b2a41;
+    --good: #46c79b;
+    --bad: #ff8b82;
+    --warn: #f0b45a;
+    --chart-1: #4a5d78;
+    --chart-2: #ffd84d;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-tag: var(--tag);
+  --color-tag-foreground: var(--tag-foreground);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-warn: var(--warn);
+  --font-sans: var(--f-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--f-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *, ::after, ::before { border-color: var(--border); }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
